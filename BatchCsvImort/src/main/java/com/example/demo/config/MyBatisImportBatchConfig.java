@@ -20,6 +20,7 @@ public class MyBatisImportBatchConfig extends BaseConfig {
 	private SqlSessionFactory sqlSessionFactory;
 	
 	//Writer(MyBatis)
+	@Bean
 	public MyBatisBatchItemWriter<Employee> mybatisWriter(){
 		return new MyBatisBatchItemWriterBuilder<Employee>()
 				.sqlSessionFactory(sqlSessionFactory)
