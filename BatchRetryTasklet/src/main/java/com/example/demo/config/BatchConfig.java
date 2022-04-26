@@ -10,11 +10,12 @@ import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 @Configuration
 @EnableBatchProcessing
-
+@EnableScheduling
 public class BatchConfig {
 
 	/*StepbuilderのFactoryクラス*/
@@ -37,7 +38,7 @@ public class BatchConfig {
 	
 	/*Jobの生成*/
 	@Bean
-	@Scheduled(fixedDelay = 5000)
+	@Scheduled(cron = "${cron.pattern1}")
 	public Job retryTaskletJob() throws Exception{
 		return jobBuilderFactory.get("retryTaskletjob")
 				.incrementer(new RunIdIncrementer())

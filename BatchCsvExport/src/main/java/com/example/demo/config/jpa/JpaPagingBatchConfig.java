@@ -15,11 +15,16 @@ import org.springframework.batch.item.database.orm.JpaNativeQueryProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import com.example.demo.config.BaseConfig;
 import com.example.demo.domain.model.Employee;
 
 @Configuration
+@EnableScheduling
+@PropertySource("classpath:property/cron.properties")
 public class JpaPagingBatchConfig extends BaseConfig {
 
 	//Jpaで必要
@@ -29,6 +34,7 @@ public class JpaPagingBatchConfig extends BaseConfig {
 	//JpaPagibgItemReader
 	@Bean
 	@StepScope
+	@Scheduled(initialDelay = 5000, fixedRate = 10000)
 	public JpaPagingItemReader<Employee> jpaPagingReader(){
 		
 		String SQL = "select * from employee where gender = :genderParam order by id";

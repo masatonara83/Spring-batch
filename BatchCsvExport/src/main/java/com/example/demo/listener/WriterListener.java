@@ -19,7 +19,6 @@ public class WriterListener implements ItemWriteListener<Employee> {
 		
 	}
 
-	@Override
 	public void afterWrite(List<? extends Employee> items) {
 		log.debug("AfterWrite: count={}", items.size());
 		

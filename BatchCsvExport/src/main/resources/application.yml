@@ -21,3 +21,5 @@ logging:
 mybatis:
   mapper-locations: classpath*:/mapper/postgres/*.xml
   type-aliases-package: com.example.demo.domain.model
+  
+  

@@ -20,10 +20,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.example.demo.domain.model.Employee;
 
 @EnableBatchProcessing
+@EnableScheduling
 public abstract class BaseConfig {
 	@Autowired
 	protected JobBuilderFactory jobBuilderFactory;

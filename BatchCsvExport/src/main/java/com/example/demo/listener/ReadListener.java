@@ -9,8 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class ReadListener implements ItemReadListener<Employee> 
-{@Override
+public class ReadListener implements ItemReadListener<Employee> {
+	
+	@Override
 	public void beforeRead() {
 		log.debug("beforeRead Start");
 		
